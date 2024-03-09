@@ -6,11 +6,12 @@ function doPost(e) {
   var text = message.events[0].message.text;
   if(text.indexOf('紀錄')!=-1){
     record.appendRow([new Date().toLocaleDateString(),text])
-    send(text);
+    send('患者心願函',text);
   }
   else if(text.indexOf('完成服藥')!=-1){
     main.getRange('B1').setValue('已完成');
-    main.getRange('B2').setValue(new Date().toLocaleString())
+    main.getRange('B2').setValue(new Date().toLocaleString());
+    send('完成服藥通知',text);
   }
   var data = {
     replyToken: replyToken,
@@ -65,12 +66,12 @@ function getReply(text){
 }
 function send(text){
   MailApp.sendEmail('<your mail>','患者心願函','',{
-    noReply:true,
+    name:'守護小精靈🧚‍♀️',
     cc:'<mail_1>,<mail_2>',
     htmlBody:`
       <table  border="1" width="100%" height="40px">
           <tr>
-              <td align="center">患者心願函</td>
+              <td align="center">${title}</td>
           </tr>
           <tr>
               <td align="center">${new Date().toLocaleString()}</td>
