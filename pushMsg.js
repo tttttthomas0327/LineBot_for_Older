@@ -1,5 +1,5 @@
 const main = SpreadsheetApp.getActive().getSheetByName('main')
-const channelToken ='mjI4cVfQQ22KfzpzwyzweJMgDFrNkU8rf0M6C2JMFFLJGpdvXDcaJOMrNLPm/z19usf3VgGGQ0Tb67oB5og5zHtymJYdH9p2tTR6wZRS8ilMWJNragwZ7YsXbLHggpw4dy9E5pClFH96aKEe8MGmYQdB04t89/1O/w1cDnyilFU='
+const channelToken ='<token>'
 function pushMsg() {
   if(main.getRange('B1').getValue()=='已完成') return;
   var url = 'https://api.line.me/v2/bot/message/push';
@@ -11,7 +11,7 @@ function pushMsg() {
   'method': 'POST',
   'payload': JSON.stringify({
     // message.event[0] 的 userId
-    "to":"U743ff1ceda18bc1d59efa38abd2099f0",
+    "to":"<userID>",
     "messages": getMsg()
   })
  };
