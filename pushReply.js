@@ -64,9 +64,9 @@ function getReply(text){
   return '';
 }
 function send(text){
-  MailApp.sendEmail('blc0000421@gmail.com','患者心願函','',{
+  MailApp.sendEmail('<your mail>','患者心願函','',{
     noReply:true,
-    cc:'sclemon1013@gmail.com,blc0000421@gapp.nthu.edu.tw',
+    cc:'<mail_1>,<mail_2>',
     htmlBody:`
       <table  border="1" width="100%" height="40px">
           <tr>
